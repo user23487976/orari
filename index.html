@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classe 5IE - Orario e Aule</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="schedule-header">
+            <h1>Classe 5IE - Orario e Aule</h1>
+            <div class="date-time">
+                <span id="current-date"></span>
+                <span id="current-time"></span>
+            </div>
+        </header>
+        
+        <div class="schedule-wrapper">
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th class="time-header">Orario</th>
+                        <th>Lunedì</th>
+                        <th>Martedì</th>
+                        <th>Mercoledì</th>
+                        <th>Giovedì</th>
+                        <th>Venerdì</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="time-slot">08:00 - 09:00</td>
+                        <td class="schedule-cell" data-room="PAL">
+                            <div class="teacher">CANNAVACCIUOLO M.</div>
+                            <div class="room">PAL</div>
+                        </td>
+                        <td class="schedule-cell" data-room="SYS">
+                            <div class="teacher">SGARIGLIA C.</div>
+                            <div class="room">SYS</div>
+                        </td>
+                        <td class="schedule-cell" data-room="105">
+                            <div class="teacher">SGARIGLIA C.</div>
+                            <div class="room">105</div>
+                        </td>
+                        <td class="schedule-cell" data-room="105">
+                            <div class="teacher">TERRANOVA L.</div>
+                            <div class="room">105</div>
+                        </td>
+                        <td class="schedule-cell" data-room="LINGUE">
+                            <div class="teacher">CATALDO E. / PIEDIMONTE A.</div>
+                            <div class="room">LINGUE</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="time-slot">09:00 - 09:55</td>
+                        <td class="schedule-cell" data-room="LINGUE">
+                            <div class="teacher">FUCILE C.</div>
+                            <div class="room">LINGUE</div>
+                        </td>
+                        <td class="schedule-cell" data-room="INF2">
+                            <div class="teacher">BRUGNONE L. / SGARIGLIA C.</div>
+                            <div class="room">INF 2</div>
+                        </td>
+                        <td class="schedule-cell" data-room="INF2">
+                            <div class="teacher">SGARIGLIA C.</div>
+                            <div class="room">INF 2</div>
+                        </td>
+                        <td class="schedule-cell" data-room="105">
+                            <div class="teacher">PALOMBA A.</div>
+                            <div class="room">105</div>
+                        </td>
+                        <td class="schedule-cell" data-room="106">
+                            <div class="teacher">CATALDO E. / PIEDIMONTE A.</div>
+                            <div class="room">106</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="time-slot">09:55 - 10:50</td>
+                        <td class="schedule-cell" data-room="6">
+                            <div class="teacher">BOCCARDI S.</div>
+                            <div class="room">6</div>
+                        </td>
+                        <td class="schedule-cell" data-room="LINGUE">
+                            <div class="teacher">TERRANOVA L.</div>
+                            <div class="room">LINGUE</div>
+                        </td>
+                        <td class="schedule-cell" data-room="LIMM">
+                            <div class="teacher">GRASSIA M.</div>
+                            <div class="room">L.IMM</div>
+                        </td>
+                        <td class="schedule-cell" data-room="LIMM">
+                            <div class="teacher">BOCCARDI S. / DI CASOLA M.</div>
+                            <div class="room">L.IMM</div>
+                        </td>
+                        <td class="schedule-cell" data-room="205">
+                            <div class="teacher">BRUGNONE L. / PALOMBA A.</div>
+                            <div class="room">205</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="time-slot">10:50 - 11:45</td>
+                        <td class="schedule-cell" data-room="205">
+                            <div class="teacher">TERRANOVA L.</div>
+                            <div class="room">205</div>
+                        </td>
+                        <td class="schedule-cell" data-room="205">
+                            <div class="teacher">CANNAVACCIUOLO M.</div>
+                            <div class="room">205</div>
+                        </td>
+                        <td class="schedule-cell" data-room="205">
+                            <div class="teacher">GRASSIA M.</div>
+                            <div class="room">205</div>
+                        </td>
+                        <td class="schedule-cell" data-room="105">
+                            <div class="teacher">BOCCARDI S. / DI CASOLA M.</div>
+                            <div class="room">105</div>
+                        </td>
+                        <td class="schedule-cell" data-room="105">
+                            <div class="teacher">PALOMBA A.</div>
+                            <div class="room">105</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="time-slot">11:45 - 12:40</td>
+                        <td class="schedule-cell" data-room="LINGUE">
+                            <div class="teacher">BRUGNONE L. / SGARIGLIA C.</div>
+                            <div class="room">LINGUE</div>
+                        </td>
+                        <td class="schedule-cell" data-room="LINGUE">
+                            <div class="teacher">FUCILE C.</div>
+                            <div class="room">LINGUE</div>
+                        </td>
+                        <td class="schedule-cell" data-room="1">
+                            <div class="teacher">FUCILE C.</div>
+                            <div class="room">1</div>
+                        </td>
+                        <td class="schedule-cell" data-room="1">
+                            <div class="teacher">FUCILE C.</div>
+                            <div class="room">1</div>
+                        </td>
+                        <td class="schedule-cell" data-room="INF1">
+                            <div class="teacher">FUCILE C.</div>
+                            <div class="room">INF 1</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="time-slot">12:40 - 13:35</td>
+                        <td class="schedule-cell" data-room="INF1">
+                            <div class="teacher">BRUGNONE L. / SGARIGLIA C.</div>
+                            <div class="room">INF 1</div>
+                        </td>
+                        <td class="schedule-cell" data-room="LIA">
+                            <div class="teacher">CATALDO E. / PIEDIMONTE A.</div>
+                            <div class="room">L.IA</div>
+                        </td>
+                        <td class="schedule-cell" data-room="9">
+                            <div class="teacher">CATALDO E.</div>
+                            <div class="room">9</div>
+                        </td>
+                        <td class="schedule-cell" data-room="9">
+                            <div class="teacher">IORIO L.</div>
+                            <div class="room">9</div>
+                        </td>
+                        <td class="schedule-cell" data-room="9">
+                            <div class="teacher">FUCILE C.</div>
+                            <div class="room">9</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
