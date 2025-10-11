@@ -58,7 +58,8 @@ function highlightCurrentTimeSlot() {
         { start: 9 * 60 + 55, end: 10 * 60 + 50, row: 2 }, // 09:55 - 10:50
         { start: 10 * 60 + 50, end: 11 * 60 + 45, row: 3 }, // 10:50 - 11:45
         { start: 11 * 60 + 45, end: 12 * 60 + 40, row: 4 }, // 11:45 - 12:40
-        { start: 12 * 60 + 40, end: 13 * 60 + 35, row: 5 }  // 12:40 - 13:35
+        { start: 12 * 60 + 40, end: 13 * 60 + 35, row: 5 }, // 12:40 - 13:35
+        { start: 13 * 60 + 35, end: 14 * 60 + 30, row: 6 }  // 13:35 - 14:30 (new slot)
     ];
     
     // Remove existing highlighting
@@ -126,7 +127,6 @@ function showTooltip(element, teacher, room) {
         <strong>Aula:</strong> ${room}
     `;
     
-    // Style the tooltip
     tooltip.style.cssText = `
         position: absolute;
         background: var(--color-surface);
@@ -143,14 +143,12 @@ function showTooltip(element, teacher, room) {
     
     document.body.appendChild(tooltip);
     
-    // Position the tooltip
     const rect = element.getBoundingClientRect();
     const tooltipRect = tooltip.getBoundingClientRect();
     
     let left = rect.left + (rect.width / 2) - (tooltipRect.width / 2);
     let top = rect.top - tooltipRect.height - 10;
     
-    // Adjust if tooltip goes off screen
     if (left < 10) left = 10;
     if (left + tooltipRect.width > window.innerWidth - 10) {
         left = window.innerWidth - tooltipRect.width - 10;
@@ -162,76 +160,45 @@ function showTooltip(element, teacher, room) {
     tooltip.style.left = left + 'px';
     tooltip.style.top = top + 'px';
     
-    // Remove tooltip after 3 seconds
     setTimeout(() => {
-        if (tooltip.parentNode) {
-            tooltip.remove();
-        }
+        if (tooltip.parentNode) tooltip.remove();
     }, 3000);
 }
 
-// Add print functionality
-function printSchedule() {
-    window.print();
-}
-
-// Keyboard shortcuts
 document.addEventListener('keydown', function(e) {
-    // Ctrl+P or Cmd+P for printing
     if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
         e.preventDefault();
         printSchedule();
     }
-    
-    // Escape to close tooltips
     if (e.key === 'Escape') {
-        const tooltips = document.querySelectorAll('.schedule-tooltip');
-        tooltips.forEach(tooltip => tooltip.remove());
+        document.querySelectorAll('.schedule-tooltip').forEach(tooltip => tooltip.remove());
     }
 });
 
-// Initialize interactions when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     addScheduleCellInteractions();
 });
 
-// Add responsive table scroll functionality
 function handleTableScroll() {
     const wrapper = document.querySelector('.schedule-wrapper');
     const table = document.querySelector('.schedule-table');
     
     if (wrapper && table) {
-        // Add scroll indicators if table is wider than container
         if (table.scrollWidth > wrapper.clientWidth) {
             wrapper.classList.add('scrollable');
-            
-            // Add scroll shadow effects
             wrapper.addEventListener('scroll', function() {
                 const scrollLeft = this.scrollLeft;
                 const maxScroll = this.scrollWidth - this.clientWidth;
                 
-                if (scrollLeft > 0) {
-                    this.classList.add('scroll-left');
-                } else {
-                    this.classList.remove('scroll-left');
-                }
+                if (scrollLeft > 0) this.classList.add('scroll-left');
+                else this.classList.remove('scroll-left');
                 
-                if (scrollLeft < maxScroll) {
-                    this.classList.add('scroll-right');
-                } else {
-                    this.classList.remove('scroll-right');
-                }
+                if (scrollLeft < maxScroll) this.classList.add('scroll-right');
+                else this.classList.remove('scroll-right');
             });
         }
     }
 }
 
-// Handle window resize
-window.addEventListener('resize', function() {
-    handleTableScroll();
-});
-
-// Initialize on load
-window.addEventListener('load', function() {
-    handleTableScroll();
-});
+window.addEventListener('resize', handleTableScroll);
+window.addEventListener('load', handleTableScroll);
