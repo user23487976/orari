@@ -869,8 +869,8 @@ body {
     color: var(--color-warning);
 }
 
-.schedule-cell[data-room="INF1"] .room,
-.schedule-cell[data-room="INF2"] .room {
+.schedule-cell[data-room="INF 1"] .room,
+.schedule-cell[data-room="INF 2"] .room {
     background-color: var(--color-bg-3);
     color: var(--color-success);
 }
@@ -880,26 +880,30 @@ body {
     color: var(--color-error);
 }
 
-.schedule-cell[data-room="LIMM"] .room {
+.schedule-cell[data-room="L. IMM"] .room {
     background-color: var(--color-bg-5);
     color: #9333ea;
 }
 
-.schedule-cell[data-room="LIA"] .room {
+.schedule-cell[data-room="L. IA"] .room {
     background-color: var(--color-bg-6);
     color: #ea580c;
 }
 
 .schedule-cell[data-room="105"] .room,
+.schedule-cell[data-room="6"] .room,
+.schedule-cell[data-room="204"] .room,
 .schedule-cell[data-room="106"] .room,
 .schedule-cell[data-room="205"] .room {
     background-color: var(--color-bg-7);
     color: #db2777;
 }
-
+.schedule-cell[data-room="7"] .room,
 .schedule-cell[data-room="1"] .room,
-.schedule-cell[data-room="6"] .room,
+.schedule-cell[data-room="213"] .room,
+.schedule-cell[data-room="11"] .room,
 .schedule-cell[data-room="9"] .room {
+  
     background-color: var(--color-bg-8);
     color: #0891b2;
 }
