@@ -1031,3 +1031,67 @@ body {
         -webkit-print-color-adjust: exact;
     }
 }
+/* ...TUTTO IL CSS PRECEDENTE (fino alla sezione print)... */
+
+@media print {
+    /* ...regole di stampa... */
+}
+
+/* --- NUOVE REGOLE AGGIUNTE (MODIFICATE V2) --- */
+
+/* * Contenitore per titolo e pulsante tema.
+ * Usiamo 'position: relative' per posizionare il pulsante in modo assoluto.
+ * Usiamo 'display: flex' e 'align-items: center' solo per centrare
+ * verticalmente il pulsante rispetto all'altezza del titolo.
+ */
+.header-content {
+    position: relative;
+    display: flex; /* Attivato per 'align-items' */
+    align-items: center; /* Allinea verticalmente titolo e pulsante (invisibile) */
+    width: 100%;
+    margin-bottom: var(--space-16);
+}
+
+/* * Modifica il margine h1, lo centra e gli dà larghezza piena
+ * per ignorare il pulsante (che ora è assoluto).
+ */
+.schedule-header h1 {
+    margin-bottom: 0;
+    width: 100%; /* Occupa tutto lo spazio */
+    text-align: center; /* Si centra */
+}
+
+/* * Stile per il pulsante del tema.
+ * Ora è posizionato in modo assoluto a destra.
+ */
+#theme-toggle-btn {
+    padding: var(--space-8);
+    border-radius: var(--radius-full);
+    line-height: 0;
+    font-size: var(--font-size-lg);
+    width: calc(var(--font-size-lg) + var(--space-8) * 2 + 2px); 
+    height: calc(var(--font-size-lg) + var(--space-8) * 2 + 2px); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* --- MODIFICA CHIAVE --- */
+    position: absolute; /* Sganciato dal flusso */
+    right: 0; /* Allineato a destra del .header-content */
+    /* Non serve 'top' o 'transform' grazie a flex 'align-items: center' sul parent */
+}
+
+/* Gestisce la visualizzazione delle icone (emoji) - INVARIATO */
+html[data-color-scheme="dark"] #theme-toggle-btn .icon-sun {
+    display: none;
+}
+html[data-color-scheme="dark"] #theme-toggle-btn .icon-moon {
+    display: inline;
+}
+
+html[data-color-scheme="light"] #theme-toggle-btn .icon-sun {
+    display: inline;
+}
+html[data-color-scheme="light"] #theme-toggle-btn .icon-moon {
+    display: none;
+}

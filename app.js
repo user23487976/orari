@@ -1,21 +1,23 @@
 // Schedule application JavaScript
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize the application
+    // Inizializza l'applicazione
     updateDateTime();
     highlightCurrentTimeSlot();
+    addScheduleCellInteractions(); // Unito dal secondo listener
+    initializeTheme(); // Aggiunto per il tema
     
-    // Update time every second
+    // Aggiorna l'ora ogni secondo
     setInterval(updateDateTime, 1000);
     
-    // Update current time slot highlighting every minute
+    // Aggiorna l'evidenziazione della fascia oraria ogni minuto
     setInterval(highlightCurrentTimeSlot, 60000);
 });
 
 function updateDateTime() {
     const now = new Date();
     
-    // Format date in Italian
+    // Formatta la data in italiano
     const dateOptions = {
         weekday: 'long',
         year: 'numeric',
@@ -25,7 +27,7 @@ function updateDateTime() {
     
     const formattedDate = now.toLocaleDateString('it-IT', dateOptions);
     
-    // Format time
+    // Formatta l'ora
     const timeOptions = {
         hour: '2-digit',
         minute: '2-digit',
@@ -34,7 +36,7 @@ function updateDateTime() {
     
     const formattedTime = now.toLocaleTimeString('it-IT', timeOptions);
     
-    // Update DOM elements
+    // Aggiorna elementi DOM
     const dateElement = document.getElementById('current-date');
     const timeElement = document.getElementById('current-time');
     
@@ -49,9 +51,9 @@ function updateDateTime() {
 
 function highlightCurrentTimeSlot() {
     const now = new Date();
-    const currentTime = now.getHours() * 60 + now.getMinutes(); // Convert to minutes
+    const currentTime = now.getHours() * 60 + now.getMinutes(); // Converti in minuti
     
-    // Define time slots in minutes (from midnight)
+    // Definisci le fasce orarie in minuti (da mezzanotte)
     const timeSlots = [
         { start: 8 * 60, end: 9 * 60, row: 0 },         // 08:00 - 09:00
         { start: 9 * 60, end: 9 * 60 + 55, row: 1 },   // 09:00 - 09:55
@@ -62,16 +64,16 @@ function highlightCurrentTimeSlot() {
         { start: 13 * 60 + 35, end: 14 * 60 + 30, row: 6 }  // 13:35 - 14:30 (new slot)
     ];
     
-    // Remove existing highlighting
+    // Rimuovi evidenziazione esistente
     const rows = document.querySelectorAll('.schedule-table tbody tr');
     rows.forEach(row => {
         row.classList.remove('current-time-row');
     });
     
-    // Check if current time falls within any time slot
-    const currentDay = now.getDay(); // 0 = Sunday, 1 = Monday, etc.
+    // Controlla se l'ora corrente rientra in una fascia
+    const currentDay = now.getDay(); // 0 = Domenica, 1 = Lunedì, etc.
     
-    // Only highlight if it's a weekday (Monday = 1 to Friday = 5)
+    // Evidenzia solo nei giorni feriali (da Lunedì 1 a Venerdì 5)
     if (currentDay >= 1 && currentDay <= 5) {
         timeSlots.forEach(slot => {
             if (currentTime >= slot.start && currentTime < slot.end) {
@@ -79,7 +81,7 @@ function highlightCurrentTimeSlot() {
                 if (targetRow) {
                     targetRow.classList.add('current-time-row');
                     
-                    // Smooth scroll to current time slot
+                    // Scroll dolce alla fascia oraria
                     targetRow.scrollIntoView({
                         behavior: 'smooth',
                         block: 'center'
@@ -90,7 +92,7 @@ function highlightCurrentTimeSlot() {
     }
 }
 
-// Add click handlers for schedule cells to show more details
+// Aggiungi gestione click alle celle
 function addScheduleCellInteractions() {
     const scheduleCells = document.querySelectorAll('.schedule-cell');
     
@@ -104,7 +106,7 @@ function addScheduleCellInteractions() {
             }
         });
         
-        // Add hover effects
+        // Aggiungi effetti hover
         cell.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-2px)';
         });
@@ -116,7 +118,7 @@ function addScheduleCellInteractions() {
 }
 
 function showTooltip(element, teacher, room) {
-    // Remove existing tooltips
+    // Rimuovi tooltip esistenti
     const existingTooltips = document.querySelectorAll('.schedule-tooltip');
     existingTooltips.forEach(tooltip => tooltip.remove());
     
@@ -165,6 +167,59 @@ function showTooltip(element, teacher, room) {
     }, 3000);
 }
 
+// --- NUOVE FUNZIONI PER IL TEMA ---
+
+function initializeTheme() {
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    if (!themeToggleBtn) return; // Esci se il pulsante non è trovato
+
+    const htmlElement = document.documentElement; // Seleziona <html>
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    function setTheme(theme) {
+        htmlElement.dataset.colorScheme = theme; // Imposta data-color-scheme="light" o "dark"
+        localStorage.setItem('theme', theme); // Salva la preferenza
+        
+        // Gestisci la visualizzazione delle icone (emoji)
+        const sunIcon = themeToggleBtn.querySelector('.icon-sun');
+        const moonIcon = themeToggleBtn.querySelector('.icon-moon');
+        
+        if (sunIcon && moonIcon) {
+             if (theme === 'dark') {
+                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'inline';
+            } else {
+                sunIcon.style.display = 'inline';
+                moonIcon.style.display = 'none';
+            }
+        }
+    }
+
+    function toggleTheme() {
+        // Controlla il tema corrente dall'attributo data
+        const currentTheme = htmlElement.dataset.colorScheme;
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        setTheme(newTheme);
+    }
+
+    // Aggiungi l'evento click al pulsante
+    themeToggleBtn.addEventListener('click', toggleTheme);
+
+    // Imposta il tema iniziale al caricamento
+    let initialTheme = 'light'; // Predefinito
+    if (savedTheme) {
+        initialTheme = savedTheme; // 1. Controlla localStorage
+    } else if (prefersDark) {
+        initialTheme = 'dark'; // 2. Controlla preferenze OS
+    }
+    
+    setTheme(initialTheme);
+}
+
+// --- FINE NUOVE FUNZIONI TEMA ---
+
+
 document.addEventListener('keydown', function(e) {
     if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
         e.preventDefault();
@@ -175,9 +230,10 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    addScheduleCellInteractions();
-});
+// Il secondo listener DOMContentLoaded è stato unito nel primo
+// document.addEventListener('DOMContentLoaded', function() {
+//     addScheduleCellInteractions();
+// });
 
 function handleTableScroll() {
     const wrapper = document.querySelector('.schedule-wrapper');

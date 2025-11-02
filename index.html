@@ -9,7 +9,13 @@
 <body>
     <div class="container">
         <header class="schedule-header">
-            <h1>Classe 5IE - Orario e Aule</h1>
+            <div class="header-content">
+                <h1>Classe 5IE - Orario e Aule</h1>
+                <button id="theme-toggle-btn" class="btn btn--secondary" aria-label="Cambia tema">
+                    <span class="icon-sun">☀️</span>
+                    <span class="icon-moon">🌙</span>
+                </button>
+            </div>
             <div class="date-time">
                 <span id="current-date"></span>
                 <span id="current-time"></span>
@@ -30,34 +36,27 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <!--1 ora-->
-
-                        <!--Lunedi-->
                         <td class="time-slot">08:00 - 09:00</td>
                         <td class="schedule-cell" data-room="PAL">
                             <div class="teacher">CANNAVACCIUOLO M.</div> 
                             <div class="teacher">SCIENZE MOTORIE</div>
                             <div class="room">PAL</div>
                         </td>
-                        <!--Martedi-->
                         <td class="schedule-cell" data-room="INF 2">
                             <div class="teacher">SGARIGLIA C.</div> 
                             <div class="teacher">INFORMATICA</div>
                             <div class="room">INF 2</div>
                         </td>
-                        <!--Mercoledi-->
                         <td class="schedule-cell" data-room="L. IMM">
                             <div class="teacher">SGARIGLIA C.</div> 
                             <div class="teacher">INFORMATICA</div>
                             <div class="room">L. IMM</div>
                         </td>
-                        <!--Giovedi-->
                         <td class="schedule-cell" data-room="105">
                             <div class="teacher">TERRANOVA L.</div> 
                             <div class="teacher">INGLESE</div>
                             <div class="room">105</div>
                         </td>
-                        <!--Venerdi-->
                         <td class="schedule-cell" data-room="INF 1">
                             <div class="teacher">DE VITO L. / PIEDIMONTE A.</div> 
                             <div class="teacher">TPSI</div>
@@ -65,34 +64,27 @@
                         </td>
                     </tr>
                     <tr>
-                        <!--2 ora-->
-
-                        <!--Lunedi-->
                         <td class="time-slot">09:00 - 09:55</td>
                         <td class="schedule-cell" data-room="1">
                             <div class="teacher">FUCILE C.</div> 
                             <div class="teacher">ITALIANO</div>
                             <div class="room">116</div>
                         </td>
-                        <!--Martedi-->
                         <td class="schedule-cell" data-room="INF 2">
                             <div class="teacher">BRUGNONE L. / SGARIGLIA C.</div> 
                             <div class="teacher">INFORMATICA</div>
                             <div class="room">INF 2</div>
                         </td>
-                        <!--Mercoledi-->
                         <td class="schedule-cell" data-room="L. IMM">
                             <div class="teacher">SGARIGLIA C.</div> 
                             <div class="teacher">INFORMATICA</div>
                             <div class="room">L. IMM</div>
                         </td>
-                        <!--Giovedi-->
                         <td class="schedule-cell" data-room="105">
                             <div class="teacher">PALOMBA A.</div> 
                             <div class="teacher">GPOI</div>
                             <div class="room">105</div>
                         </td>
-                        <!--Venerdi-->
                         <td class="schedule-cell" data-room="INF 1">
                             <div class="teacher">DE VITO L. / PIEDIMONTE A.</div> 
                             <div class="teacher">TPSI</div>
@@ -100,34 +92,27 @@
                         </td>
                     </tr>
                     <tr>
-                        <!--3 ora-->
-
-                        <!--Lunedi-->
                         <td class="time-slot">09:55 - 10:50</td>
                         <td class="schedule-cell" data-room="105">
                             <div class="teacher">BOCCARDI S.</div> 
                             <div class="teacher">SISTEMI E RETI</div>
                             <div class="room">105</div>
                         </td>
-                        <!--Martedi-->
                         <td class="schedule-cell" data-room="106">
                             <div class="teacher">TERRANOVA L.</div> 
                             <div class="teacher">INGLESE</div>
                             <div class="room">106</div>
                         </td>
-                        <!--Mercoledi-->
                         <td class="schedule-cell" data-room="213">
                             <div class="teacher">GRASSIA M.</div> 
                             <div class="teacher">MATEMATICA</div>
                             <div class="room">213</div>
                         </td>
-                        <!--Giovedi-->
                         <td class="schedule-cell" data-room="LINGUE">
                             <div class="teacher">BOCCARDI S. / DI CASOLA M.</div> 
                             <div class="teacher">SISTEMI E RETI</div>
                             <div class="room">LINGUE</div>
                         </td>
-                        <!--Venerdi-->
                         <td class="schedule-cell" data-room="L. IA">
                             <div class="teacher">BRUGNONE L. / PALOMBA A.</div> 
                             <div class="teacher">GPOI</div>
@@ -135,34 +120,27 @@
                         </td>
                     </tr>
                     <tr>
-                        <!--4 ora-->
-
-                        <!--Lunedi-->
                         <td class="time-slot">10:50 - 11:45</td>
                         <td class="schedule-cell" data-room="105">
                             <div class="teacher">TERRANOVA L.</div> 
                             <div class="teacher">INGLESE</div>
                             <div class="room">105</div>
                         </td>
-                        <!--Martedi-->
                         <td class="schedule-cell" data-room="PAL">
                             <div class="teacher">CANNAVACCIUOLO M.</div> 
                             <div class="teacher">SCIENZE MOTORIE</div>
                             <div class="room">PAL</div>
                         </td>
-                        <!--Mercoledi-->
                         <td class="schedule-cell" data-room="213">
                             <div class="teacher">GRASSIA M.</div> 
                             <div class="teacher">MATEMATICA</div>
                             <div class="room">213</div>
                         </td>
-                        <!--Giovedi-->
                         <td class="schedule-cell" data-room="LINGUE">
                             <div class="teacher">BOCCARDI S. / DI CASOLA M.</div> 
                             <div class="teacher">SISTEMI E RETI</div>
                             <div class="room">LINGUE</div>
                         </td>
-                        <!--Venerdi-->
                         <td class="schedule-cell" data-room="9">
                             <div class="teacher">PALOMBA A.</div>
                             <div class="teacher">GPOI</div>
@@ -170,34 +148,27 @@
                         </td>
                     </tr>
                     <tr>
-                        <!--5 ora-->
-
-                        <!--Lunedi-->
                         <td class="time-slot">11:45 - 12:40</td>
                         <td class="schedule-cell" data-room="LINGUE">
                             <div class="teacher">BRUGNONE L. / SGARIGLIA C.</div>
                             <div class="teacher">INFORMATICA</div>
                             <div class="room">LINGUE</div>
                         </td>
-                        <!--Martedi-->
                         <td class="schedule-cell" data-room="6">
                             <div class="teacher">FUCILE C.</div>
                             <div class="teacher">STORIA</div>
                             <div class="room">6</div>
                         </td>
-                        <!--Mercoledi-->
                         <td class="schedule-cell" data-room="204">
                             <div class="teacher">FUCILE C.</div>
                             <div class="teacher">ITALIANO</div>
                             <div class="room">210</div>
                         </td>
-                        <!--Giovedi-->
                         <td class="schedule-cell" data-room="1">
                             <div class="teacher">FUCILE C.</div>
                             <div class="teacher">STORIA</div>
                             <div class="room">1</div>
                         </td>
-                        <!--Venerdi-->
                         <td class="schedule-cell" data-room="9">
                             <div class="teacher">FUCILE C.</div>
                             <div class="teacher">ITALIANO</div>
@@ -205,34 +176,27 @@
                         </td>
                     </tr>
                     <tr>
-                        <!--6 ora-->
-
-                        <!--Lunedi-->
                         <td class="time-slot">12:40 - 13:35</td>
                         <td class="schedule-cell" data-room="11">
                             <div class="teacher">BRUGNONE L. / SGARIGLIA C.</div>
                             <div class="teacher">INFORMATICA</div>
                             <div class="room">105</div>
                         </td>
-                        <!--Martedi-->
                         <td class="schedule-cell" data-room="LINGUE">
                             <div class="teacher">DE VITO L. / PIEDIMONTE A.</div>
                             <div class="teacher">TPSI</div>
                             <div class="room">LINGUE</div>
                         </td>
-                        <!--Mercoledi-->
                         <td class="schedule-cell" data-room="204">
                             <div class="teacher">DE VITO L.</div>
                             <div class="teacher">TPSI</div>
                             <div class="room">210</div>
                         </td>
-                        <!--Giovedi-->
                         <td class="schedule-cell" data-room="1">
                             <div class="teacher">IORIO L.</div>
                             <div class="teacher">RELIGIONE</div>
                             <div class="room">1</div>
                         </td>
-                        <!--Venerdi-->
                         <td class="schedule-cell" data-room="9">
                             <div class="teacher">FUCILE C.</div>
                             <div class="teacher">ITALIANO</div>
@@ -242,34 +206,27 @@
 
 
                     <tr>
-                        <!--7 ora-->
-
-                        <!--Lunedi-->
                         <td class="time-slot">13:35 - 14:30</td>
                         <td class="schedule-cell" data-room="11">
                             <div class="teacher">GRASSIA M.</div>
                             <div class="teacher">MATEMATICA</div>
                             <div class="room">105</div>
                         </td>
-                        <!--Martedi-->
                         <td class="schedule-cell" data-room="">
                             <div class="teacher"></div>
                             <div class="teacher"></div>
                             <div class="room"></div>
                         </td>
-                        <!--Mercoledi-->
                         <td class="schedule-cell" data-room="">
                             <div class="teacher"></div>
                             <div class="teacher"></div>
                             <div class="room"></div>
                         </td>
-                        <!--Giovedi-->
                         <td class="schedule-cell" data-room="">
                             <div class="teacher"></div>
                             <div class="teacher"></div>
                             <div class="room"></div>
                         </td>
-                        <!--Venerdi-->
                         <td class="schedule-cell" data-room="?">
                             <div class="teacher">BOCCARDI S. / DI CASOLA M.</div>
                             <div class="teacher">SISTEMI E RETI</div>
